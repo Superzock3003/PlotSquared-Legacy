@@ -194,7 +194,7 @@ public final class NukkitMain extends PluginBase implements Listener, IPlotMain 
 
     @Override
     public void runEntityTask() {
-        PS.log(C.PREFIX + "KillAllEntities started.");
+       /* PS.log(C.PREFIX + "KillAllEntities started.");
         TaskManager.runTaskRepeat(() -> PS.get().foreachPlotArea(new RunnableVal<PlotArea>() {
             @Override
             public void run(PlotArea plotArea) {
@@ -228,7 +228,7 @@ public final class NukkitMain extends PluginBase implements Listener, IPlotMain 
                     e.printStackTrace();
                 }
             }
-        }), 20);
+        }), 20); */
     }
 
     @Override
