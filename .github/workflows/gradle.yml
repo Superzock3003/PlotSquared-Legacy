@@ -20,3 +20,11 @@ jobs:
           java-version: 1.8
       - name: Test with Gradle
         run: ./gradlew clean build
+      - name: Rename artifacts
+        run: mv target/PlotSquared-Nukkit-*.jar target/PlotSquared.jar
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v1
+        if: success()
+        with:
+          name: PlotSquared
+          path: target/PlotSquared.jar
