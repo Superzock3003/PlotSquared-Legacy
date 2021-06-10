@@ -1,6 +1,7 @@
 package com.plotsquared.nukkit.util;
 
 import cn.nukkit.Player;
+import cn.nukkit.Server;
 import cn.nukkit.event.Cancellable;
 import cn.nukkit.event.Event;
 import com.intellectualcrafters.plot.flag.Flag;
@@ -29,10 +30,7 @@ public class NukkitEventUtil extends EventUtil {
     }
 
     public Player getPlayer(PlotPlayer player) {
-        if (player instanceof NukkitPlayer) {
-            return ((NukkitPlayer) player).player;
-        }
-        return null;
+        return Server.getInstance().getPlayerExact(player.getName());
     }
 
     public boolean callEvent(Event event) {
