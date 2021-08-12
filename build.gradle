@@ -68,11 +68,13 @@ subprojects {
             exclude(module: 'mockito-core')
             exclude(module: 'dummypermscompat')
         }
+        implementation 'com.github.Superzock3003:PowerNukkit:v1.17-SNAPSHOT'
         compile 'com.google.guava:guava:21.0'
     }
     repositories {
         mavenCentral()
         maven { url "https://maven.enginehub.org/repo/" }
+        maven { url 'https://jitpack.io' }
     }
 }
 task aggregatedJavadocs(type: Javadoc, description: 'Generate javadocs from all child projects as if it was a single project', group: 'Documentation') {
