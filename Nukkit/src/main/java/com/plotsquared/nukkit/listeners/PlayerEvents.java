@@ -682,6 +682,40 @@ public class PlayerEvents extends PlotListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    public void onBigBoom(BlockExplodeEvent event) {
+        Location location = NukkitUtil.getLocation(event.getPosition());
+        PlotArea area = location.getPlotArea();
+        if (area == null) {
+            if (!PS.get().hasPlotArea(location.getWorld())) {
+                return;
+            }
+            Iterator<Block> iterator = event.getAffectedBlocks().iterator();
+            while (iterator.hasNext()) {
+                iterator.next();
+                if (location.getPlotArea() != null) {
+                    iterator.remove();
+                }
+            }
+            return;
+        }
+        Plot plot = area.getOwnedPlot(location);
+        if (plot != null) {
+            if (Flags.EXPLOSION.isTrue(plot)) {
+                Iterator<Block> iterator = event.getAffectedBlocks().iterator();
+                while (iterator.hasNext()) {
+                    Block block = iterator.next();
+                    location = NukkitUtil.getLocation(block.getLocation());
+                    if (!area.contains(location.getX(), location.getZ()) || !block.equals(area.getOwnedPlot(location))) {
+                        iterator.remove();
+                    }
+                }
+                return;
+            }
+        }
+        event.setCancelled(true);
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onEntityBlockForm(BlockFormEvent event) {
         String world = event.getBlock().getLevel().getName();
         if (!PS.get().hasPlotArea(world)) {
