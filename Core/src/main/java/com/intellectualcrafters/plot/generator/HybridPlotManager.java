@@ -101,7 +101,7 @@ public class HybridPlotManager extends ClassicPlotManager {
         Location pos1 = getPlotTopLocAbs(hpw, id).add(1, 0, 1);
         Location pos2 = getPlotBottomLocAbs(hpw, id2);
         pos1.setY(0);
-        pos2.setY(Math.min(getWorldHeight(), 255));
+        pos2.setY(Math.min(getWorldHeight(), 319));
         LocalBlockQueue queue = hpw.getQueue(false);
         createSchemAbs(hpw, queue, pos1, pos2);
         if (hpw.ROAD_SCHEMATIC_ENABLED) {

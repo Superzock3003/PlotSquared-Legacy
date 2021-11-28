@@ -472,7 +472,7 @@ public final class NukkitMain extends PluginBase implements Listener, IPlotMain 
                 return new HybridPlotManager() {
                     @Override
                     public int getWorldHeight() {
-                        return 255;
+                        return 319;
                     }
                 };
             }
