@@ -705,7 +705,7 @@ public class PlayerEvents extends PlotListener implements Listener {
                 while (iterator.hasNext()) {
                     Block block = iterator.next();
                     location = NukkitUtil.getLocation(block.getLocation());
-                    if (!area.contains(location.getX(), location.getZ()) || !block.equals(area.getOwnedPlot(location))) {
+                    if (!area.contains(location.getX(), location.getZ()) || !plot.equals(area.getOwnedPlot(location))) {
                         iterator.remove();
                     }
                 }
