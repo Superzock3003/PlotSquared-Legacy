@@ -4,6 +4,7 @@ buildscript {
     repositories {
         mavenCentral()
         maven { url = "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url 'https://jitpack.io' }
         jcenter()
     }
     dependencies {
@@ -18,7 +19,7 @@ buildscript {
 
 plugins {
     id 'maven-publish'
-    id "org.ajoberstar.grgit" version "4.1.0"
+    id "org.ajoberstar.grgit" version "4.1.1"
 }
 
 group = 'com.intellectualcrafters'
@@ -68,7 +69,7 @@ subprojects {
             exclude(module: 'mockito-core')
             exclude(module: 'dummypermscompat')
         }
-        implementation 'com.github.Superzock3003:PowerNukkit:v1.17-SNAPSHOT'
+        implementation 'com.github.Superzock3003:PowerNukkit:v1.18-SNAPSHOT'
         compile 'com.google.guava:guava:21.0'
     }
     repositories {
