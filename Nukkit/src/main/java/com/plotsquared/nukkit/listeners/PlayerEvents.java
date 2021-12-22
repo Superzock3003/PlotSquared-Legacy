@@ -721,7 +721,8 @@ public class PlayerEvents extends PlotListener implements Listener {
         if (!PS.get().hasPlotArea(world)) {
             return;
         }
-        if (NukkitUtil.getLocation(event.getBlock().getLocation()).getPlotArea() != null) {
+        Location location = NukkitUtil.getLocation(event.getBlock().getLocation());
+        if (location.getPlotArea() != null && location.isPlotRoad()) {
             event.setCancelled(true);
         }
     }
