@@ -47,7 +47,7 @@
     <dependency>
       <groupId>com.github.Superzock3003</groupId>
       <artifactId>PowerNukkit</artifactId>
-      <version>v1.17-SNAPSHOT</version>
+      <version>v1.18-SNAPSHOT</version>
       <scope>runtime</scope>
     </dependency>
   </dependencies>
