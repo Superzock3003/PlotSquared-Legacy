@@ -846,9 +846,6 @@ public class PlayerEvents extends PlotListener implements Listener {
             }
             return;
         }
-        if (checkEntity(entity, plot)) {
-            kill(entity, event);
-        }
     }
 
     private void kill(Entity entity, Event event) {
