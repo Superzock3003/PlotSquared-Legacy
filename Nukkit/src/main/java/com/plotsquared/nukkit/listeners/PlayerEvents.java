@@ -154,7 +154,7 @@ public class PlayerEvents extends PlotListener implements Listener {
         }
         PlotPlayer pp = NukkitUtil.getPlayer((Player) shooter);
         Plot plot = l.getOwnedPlot();
-        if (plot != null && !plot.isAdded(pp.getUUID())) {
+        if (plot != null && !plot.isAdded(pp.getUUID()) &&  !Permissions.hasPermission(pp, C.PERMISSION_ADMIN_INTERACT_OTHER)) {
             kill(entity, event);
         }
     }
