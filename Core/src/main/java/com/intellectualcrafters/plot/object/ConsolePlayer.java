@@ -108,7 +108,10 @@ public class ConsolePlayer extends PlotPlayer {
     
     @Override
     public void setWeather(PlotWeather weather) {}
-    
+
+    @Override
+    public void sendWeather() {}
+
     @Override
     public PlotGameMode getGameMode() {
         return PlotGameMode.NOT_SET;
@@ -119,7 +122,10 @@ public class ConsolePlayer extends PlotPlayer {
     
     @Override
     public void setTime(long time) {}
-    
+
+    @Override
+    public void sendTime() {}
+
     @Override
     public boolean getFlight() {
         return true;

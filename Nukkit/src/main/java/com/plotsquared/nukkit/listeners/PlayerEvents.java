@@ -27,7 +27,9 @@ import cn.nukkit.event.inventory.InventoryCloseEvent;
 import cn.nukkit.event.player.*;
 import cn.nukkit.event.potion.PotionCollideEvent;
 import cn.nukkit.event.redstone.RedstoneUpdateEvent;
+import cn.nukkit.event.server.DataPacketSendEvent;
 import cn.nukkit.metadata.MetadataValue;
+import cn.nukkit.network.protocol.SetTimePacket;
 import cn.nukkit.plugin.Plugin;
 import com.google.common.base.Optional;
 import com.intellectualcrafters.plot.PS;
@@ -1320,6 +1322,14 @@ public class PlayerEvents extends PlotListener implements Listener {
             }
         } else if (!Permissions.hasPermission(pp, C.PERMISSION_ADMIN_BUILD_OTHER)) {
             MainUtil.sendMessage(pp, C.NO_PERMISSION_EVENT, C.PERMISSION_ADMIN_BUILD_ROAD);
+            event.setCancelled(true);
+        }
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    public void datapacketSend(DataPacketSendEvent event) {
+        final PlotPlayer pp = NukkitUtil.getPlayer(event.getPlayer());
+        if (pp.hasCustomTime && event.getPacket() instanceof SetTimePacket) {
             event.setCancelled(true);
         }
     }
